@@ -10,4 +10,6 @@
 ## Notes: Displays the reagent count on action bars.
 ## Author: Pazza (Bronzebeard)
 
+## X-Curse-Project-ID: 345322
+
 main.lua
