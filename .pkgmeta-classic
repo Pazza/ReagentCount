@@ -1,0 +1,8 @@
+package-as: ReagentCount
+
+externals:
+
+enable-nolib-creation: no
+
+tools-used:
+    - idlua
