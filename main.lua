@@ -3,10 +3,7 @@ local ActionButton_Update = ActionButton_Update
 local CreateFrame = CreateFrame
 local GetContainerItemInfo = GetContainerItemInfo
 local GetContainerNumSlots = GetContainerNumSlots
-
-local STRINGS = {
-	["Reagents:"] = "Reagents:"
-}
+local SPELL_REAGENTS = SPELL_REAGENTS
 
 local tooltipFrame
 local slots = {}
@@ -34,8 +31,8 @@ local reagentCheck = function (slot)
 	for i, region in pairs(regions) do
 		if region:GetObjectType() == "FontString" then
 			local text = region:GetText()
-			if text and string.find(text, 'Reagents:') then
-				local reagent = string.gsub(text, STRINGS['Reagents:']..'%s', '');
+			if text and string.find(text, SPELL_REAGENTS) then
+				local reagent = string.gsub(text, SPELL_REAGENTS, '')
 				return cleanName(reagent)
 			end
 		end
