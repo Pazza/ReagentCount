@@ -6,25 +6,14 @@ local GetContainerNumSlots = GetContainerNumSlots
 local SPELL_REAGENTS = SPELL_REAGENTS
 
 local tooltipFrame
-local slots = {}
 
-local getSlot = function (slot)
-	if (slots[slot]) then
-		return slots[slot]
-	end
-
-	slots[slot] = {}
-
-	return slots[slot]
-end
-
-local cleanName = function (name)
+local function cleanName (name)
 	-- pull text from link
 	local itemString, itemName = name:match("|H(.*)|h%[(.*)%]|h")
 	return itemName or name
 end
 
-local reagentCheck = function (slot)
+local function reagentCheck (slot)
 	tooltipFrame:SetAction(slot)
 	regions = { tooltipFrame:GetRegions() }
 
@@ -41,7 +30,7 @@ local reagentCheck = function (slot)
 	return nil
 end
 
-local getInventoryCount = function (item)
+local function getInventoryCount (item)
 	local toFind = cleanName(item)
 	local count = 0
 	for bag = 4, 0, -1 do
@@ -58,26 +47,25 @@ local getInventoryCount = function (item)
 	return count
 end
 
-
-
-local init = function ()
+local function init ()
 	-- create tooltip frame
-	tooltipFrame = CreateFrame("GameTooltip", "abReagentCount_GameTooltip", nil, "GameTooltipTemplate")
+	tooltipFrame = CreateFrame("GameTooltip", "ReagentCount_GameTooltip", nil, "GameTooltipTemplate")
 	tooltipFrame:SetOwner(WorldFrame, "ANCHOR_NONE");
 
 	-- hook ActionButton_UpdateCount
-	getglobal(hooksecurefunc("ActionButton_UpdateCount", function (self)
-		local slot = getSlot(self.action)
-		slot.frame = self
-		slot.type = select(1, GetActionInfo(self.action))
-		if (slot.type == 'spell') then
-			local reagent = reagentCheck(self.action)
-			if (reagent) then
-				local itemCount = getInventoryCount(reagent)
-				getSlot(self.action).frame.Count:SetText(itemCount)
+	hooksecurefunc("ActionButton_UpdateCount",
+		function (self)
+			local slot = self.action
+
+			if (GetActionInfo(slot) == 'spell') then
+				local reagent = reagentCheck(slot)
+				if (reagent) then
+					local itemCount = getInventoryCount(reagent)
+					self.Count:SetText(itemCount)
+				end
 			end
 		end
-	end))
+	)
 end
 
 init()
