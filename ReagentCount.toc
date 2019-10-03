@@ -1,7 +1,7 @@
 ## Interface: 11302
 ## Version: @project-version@
 ## Title: ReagentCount
-## Notes: Displays the reagent count on action bars.
+## Notes: Displays the reagent count on spell action buttons.
 ## Author: Pazza (Bronzebeard)
 
 ## X-Curse-Project-ID: 345322
