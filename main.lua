@@ -57,7 +57,7 @@ local function init ()
 		function (self)
 			local slot = self.action
 
-			if (GetActionInfo(slot) == 'spell') then
+			if (GetActionInfo(slot) ~= 'item') then
 				local reagent = reagentCheck(slot)
 				if (reagent) then
 					local itemCount = getInventoryCount(reagent)
