@@ -1,6 +1,3 @@
 package-as: ReagentCount
 
 enable-nolib-creation: no
-
-tools-used:
-    - idlua
