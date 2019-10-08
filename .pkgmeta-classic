@@ -1,3 +1,6 @@
 package-as: ReagentCount
 
 enable-nolib-creation: no
+
+ignore:
+  screenshots/
