@@ -3,4 +3,4 @@ package-as: ReagentCount
 enable-nolib-creation: no
 
 ignore:
-  screenshots/*
+  screenshots/rogue-vanish.png
