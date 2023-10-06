@@ -1,8 +1,8 @@
 -- local references to globals
 local ActionButton_Update = ActionButton_Update
 local CreateFrame = CreateFrame
-local GetContainerItemInfo = GetContainerItemInfo
-local GetContainerNumSlots = GetContainerNumSlots
+local GetContainerItemInfo = C_Container.GetContainerItemInfo
+local GetContainerNumSlots = C_Container.GetContainerNumSlots
 local SPELL_REAGENTS = SPELL_REAGENTS
 
 local tooltipFrame
