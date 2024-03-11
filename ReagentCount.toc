@@ -1,4 +1,4 @@
-## Interface-Classic: 11404
+## Interface-Classic: 11501
 ## Version: @project-version@
 ## Title: ReagentCount
 ## Notes: Displays the reagent count on spell action buttons.
